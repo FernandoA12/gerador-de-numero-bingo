@@ -31,6 +31,7 @@ export default function Gerador() {
   function addTable(letter, number){
     setSorteado(`${letter.toUpperCase()} - ${number}`)
     numeros[letter].push(number)
+    Object.keys(numeros).map(key => numeros[key] = numeros[key].sort((a, b) => parseInt(a) > parseInt(b) ? 1 : -1))
     let maiorColuna = Object.values(numeros).map(letter => letter.length).reduce((a, b) => Math.max(a, b));
     let newRow = []
     for(let i = 0; i < maiorColuna; i++){
